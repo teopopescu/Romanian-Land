@@ -1,0 +1,311 @@
+
+<html>
+
+<body>
+
+<style>
+
+#dc {
+    height: 650px;
+    width: 900px;
+}
+
+.gm-style-iw * {
+    display: block;
+    width: 100%;
+}
+
+.gm-style-iw h4, .gm-style-iw p {
+    margin: 0;
+    padding: 0;
+}
+
+.gm-style-iw a {
+    color: #4272db;
+}
+
+</style>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+<script>
+    google.maps.event.addDomListener(window, 'load', init);
+    var map;
+    function init() {
+        var mapOptions = {
+            center: new google.maps.LatLng(46, 25),
+            zoom: 7,
+            zoomControl: true,
+            zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.DEFAULT,
+            },
+            disableDoubleClickZoom: true,
+            mapTypeControl: false,
+            scaleControl: true,
+            scrollwheel: true,
+            panControl: true,
+            streetViewControl: true,
+            draggable: true,
+            overviewMapControl: true,
+            overviewMapControlOptions: {
+                opened: false,
+            },
+            mapTypeId: google.maps.MapTypeId.MOON,
+           /* styles: [
+                {
+                    "featureType": "administrative",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.country",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "administrative.province",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "color": "#e3e3e3"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape.natural",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "color": "#cccccc",
+                            "visibility":"on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "labels.icon",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "labels.text",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.station.airport",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit.station.airport",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [
+                        {
+                            "color": "#FFFFFF",
+                            "visibility":"on"
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        }
+                    ]
+                }
+            ], */
+        }
+        var mapElement = document.getElementById('dc');
+        var map = new google.maps.Map(mapElement, mapOptions);
+      /*  var locations = [
+            ['White House', '1600 Pennsylvania Ave NW, Washington, DC 20500<br>Hours:<br>Mon - Friday 7:30 AM - 4:45 PM', '123123123', '', '', 44, 26, 'https://mapbuildr.com/assets/img/markers/ellip1se-black.png']
+        ];
+        for (i = 0; i < locations.length; i++) {
+            if (locations[i][1] == 'undefined') {
+                description = '';
+            } else {
+                description = locations[i][1];
+            }
+            if (locations[i][2] == 'undefined') {
+                telephone = '';
+            } else {
+                telephone = locations[i][2];
+            }
+            if (locations[i][3] == 'undefined') {
+                email = '';
+            } else {
+                email = locations[i][3];
+            }
+            if (locations[i][4] == 'undefined') {
+                web = '';
+            } else {
+                web = locations[i][4];
+            }
+            if (locations[i][7] == 'undefined') {
+                markericon = '';
+            } else {
+                markericon = locations[i][7];
+            }
+            marker = new google.maps.Marker({
+                icon: markericon,
+                position: new google.maps.LatLng(locations[i][5], locations[i][6]),
+                map: map,
+                title: locations[i][0],
+                desc: description,
+                tel: telephone,
+                email: email,
+                web: web
+            });
+            link = '';
+            bindInfoWindow(marker, map, locations[i][0], description, telephone, email, web, link);
+        }
+        function bindInfoWindow(marker, map, title, desc, telephone, email, web, link) {
+            var infoWindowVisible = (function () {
+                var currentlyVisible = false;
+                return function (visible) {
+                    if (visible !== undefined) {
+                        currentlyVisible = visible;
+                    }
+                    return currentlyVisible;
+                };
+            }()); 
+            iw = new google.maps.InfoWindow();
+            google.maps.event.addListener(marker, 'click', function () {
+                if (infoWindowVisible()) {
+                    iw.close();
+                    infoWindowVisible(false);
+                } else {
+                    var html = "<div style='color:#000;background-color:#fff;padding:5px;width:150px;'><h4>" + title + "</h4><p>" + desc + "<p><p>" + telephone + "<p></div>";
+                    iw = new google.maps.InfoWindow({content: html});
+                    iw.open(map, marker);
+                    infoWindowVisible(true);
+                }
+            });
+            google.maps.event.addListener(iw, 'closeclick', function () {
+                infoWindowVisible(false);
+            });
+        } */
+
+				//setting overlay color, etc.
+        map.data.setStyle({
+            fillColor: 'white',
+            strokeWeight: 0,
+            strokeColor: '#448CCB',
+            fillOpacity: 1
+        });
+
+				// here is the magic
+        map.data.loadGeoJson('https://rawgit.com/teopopescu/D3-Romania/master/Bitbucketersion4.json');
+       
+       var marker = new google.maps.Marker({map: map, id:"Baia Mare", position: {lat: 44.363, lng: 23.044}, clickable: true});
+
+marker.info = new google.maps.InfoWindow({
+  content: '<b>Speed:</b> ' 
+});
+
+google.maps.event.addListener(marker, 'click', function() {
+  marker.info.open(map, marker);
+});
+
+
+
+ 
+}
+
+
+
+</script>
+
+<div id="dc">&nbsp;</div>
+
+
+
+
+
+</body>
+
+
+
+
+
+
+</html
