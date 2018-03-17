@@ -10,11 +10,13 @@
   <head>
     <title>RomanianLand.co</title>
   </head>
-  <body>
+  <body >
 
+  <link rel="stylesheet" href="main.css">
   <p>The Romanian Map</p>
 
-  <script src="mapRender.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/js/mapRender.js"></script>
 
   <script type="text/javascript" src="/scripts/handlebars-0.9.0.pre.4.js" />
   <script src="jquery.js"></script>
