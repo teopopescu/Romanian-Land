@@ -10,17 +10,14 @@
   <head>
     <title>RomanianLand.co</title>
   </head>
-  <body>
+  <body >
 
-  <p>The Romanian Map</p>
+    <link rel="stylesheet" href="main.css">
+  <p>The Romanian Map demo</p>
+  <div id="dc">&nbsp;</div>
 
-  <script src="mapRender.js"></script>
-
-  <script type="text/javascript" src="/scripts/handlebars-0.9.0.pre.4.js" />
-  <script src="jquery.js"></script>
-  <script src="underscore.js"></script>
-  <script src="backbone.js"></script>
-  <script src="demo.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/js/mapRender.js"></script>
 
   </body>
 </html>
