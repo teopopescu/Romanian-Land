@@ -1,3 +1,5 @@
+package co.romanianland2;
+
 import java.sql.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -10,8 +12,8 @@ public class DatabaseConnection {
     static final String DB_URL = "jdbc:mysql://localhost:3306/mysql";
 
     //credentials- don't commit them;
-    static final String USER = "";
-    static final String PASS = "";
+    static final String USER = "root";
+    static final String PASS = "MyNewPass";
    static ConcurrentHashMap<Integer,Attraction> attractionsMap = new ConcurrentHashMap<Integer, Attraction>();
 
     public static void main(String[] args)
@@ -61,7 +63,7 @@ public class DatabaseConnection {
 
                 attractionsMap.put((Integer) attractionDetails.getId(), attractionDetails);
                     //store data in a data structure X
-                //in the Attractions controller, POST data to endpoint
+                //in the Attractions controller, POST data to endpoint x
                 //javascript get data from endpoint, parse it and populate with markers
 
 

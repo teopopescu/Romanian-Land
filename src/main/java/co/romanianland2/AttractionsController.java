@@ -1,3 +1,5 @@
+package co.romanianland2;
+
 
 import javafx.scene.chart.PieChart;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ public class AttractionsController {
 
     public AttractionsController()
     {
-        System.out.println(DatabaseConnection.attractionsMap);
+
     }
 
     @RequestMapping(value ="/attractions", method = RequestMethod.GET)

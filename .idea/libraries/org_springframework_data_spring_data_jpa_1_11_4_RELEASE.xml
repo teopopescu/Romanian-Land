@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="org.springframework.data:spring-data-jpa:1.11.4.RELEASE" type="repository">
+    <properties maven-id="org.springframework.data:spring-data-jpa:1.11.4.RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-data-jpa-1.11.4.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-data-commons-1.13.4.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-orm-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-jdbc-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-context-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-expression-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-tx-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aspectjrt-1.8.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.25.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
